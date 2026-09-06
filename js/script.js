@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
     /* =========================================================
        PROJECT ACCORDION
     ========================================================= */
@@ -637,27 +636,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    certificateModalClose.addEventListener(
-        "click",
-        closeCertificate
-    );
+    if (certificateModalClose) {
+        certificateModalClose.addEventListener(
+            "click",
+            closeCertificate
+        );
+    }
 
 
-    certificateModal.addEventListener(
-        "click",
-        (event) => {
+    if (certificateModal) {
+        certificateModal.addEventListener(
+            "click",
+            (event) => {
 
-            if (
-                event.target ===
-                certificateModal
-            ) {
+                if (
+                    event.target ===
+                    certificateModal
+                ) {
 
-                closeCertificate();
+                    closeCertificate();
+
+                }
 
             }
-
-        }
-    );
+        );
+    }
 
 
     document.addEventListener(
@@ -669,6 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
 
                 if (
+                    certificateModal &&
                     certificateModal.classList.contains(
                         "active"
                     )
